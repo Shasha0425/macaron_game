@@ -1,0 +1,43 @@
+<div class="container">
+    <div class="row">
+        <div class="col-lg-6" id="header">
+            <h3>Oooo La La! Macarons!!</h3>
+        </div>
+        <div class="col-md-6 text-center" class="task">
+            <div class="row">
+                {{#each macaroon_data}}
+                    {{#unless this.tasted}}
+                <div class="col-md-6 text-center">
+                    <pre>{{this.id}}. {{this.macaroon_flavor}}</pre>
+                </div>
+            <div class="col-md-6 text-center" >
+                <form method="POST" action="/macaroons/update?_method=PUT" class="button-size">
+                <input type="hidden" name="macaroon_id" type="text" value={{this.id}}>
+                <br>
+                <button type="submit" class="btn btn-default">Taste a Macaron</button>
+                </form>
+            </div>
+                {{/unless}}
+                {{/each}}
+            </div>
+            <div class="col-md-6 text-center" class="task">
+                {{#each macaroon_data}}
+                    {{#if this.tasted}}
+                        <input class="form-control" type="text" placeholder="{{this.id}}. {{this.macaroon_flavor}}" readonly> 
+                {{/if}}
+                {{/each}}
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 text-center enter_selection">
+            <form action="/macaroons/create" method="POST">
+            <input type="text" name="macaroon_flavor" class="form-control" value="" id="enter-text">
+            <button type="submit" class="btn bnt-primary" id="text-enter-button">New Macaroon</button>
+            </form>
+
+            </div>
+        </div>
+    </div>

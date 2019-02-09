@@ -1,0 +1,12 @@
+body {
+    background-image: url("../images/macaroons.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#header{
+    text-align: center;
+    font-family: 'Pacifico', cursive;
+    font-size: 50px;
+    font-style: italic;
+}
